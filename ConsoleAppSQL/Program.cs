@@ -13,7 +13,7 @@ namespace ConsoleAppSQL
             {
                 connection.Open();
 
-                var databaseTable = "simplenumbers";
+                var databaseTable = "numtable";
                 
                 using (var cmd = new NpgsqlCommand())
                 {
@@ -23,7 +23,7 @@ namespace ConsoleAppSQL
                     cmd.ExecuteNonQuery();
                 }
                 
-                var arrayNumbers = new ArrayList { 17, 27, 37, 43, 10, 15, 16, 23, 88};
+                var arrayNumbers = new ArrayList { 17, 27, 37, 43, 10, 88, 16, 23, 88};
                 foreach (var number in arrayNumbers)
                 {
                     using (var cmd = new NpgsqlCommand())
@@ -49,6 +49,8 @@ namespace ConsoleAppSQL
                         }
                     }   
                 }
+                
+                connection.Close();
             }
         }
     }
